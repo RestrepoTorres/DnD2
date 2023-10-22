@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./assets/styles/app.css";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
@@ -16,14 +17,46 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-function App() {
-  const [count, setCount] = useState(0);
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
 
+function googleLogin() {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      //console.log(result.user);
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+}
+
+function Button({ text, onClick }) {
+  return <button onClick={onClick}>{text}</button>;
+}
+
+function App() {
   return (
     <>
-      <h1>Aquí se va a construir DnD2</h1>
+      <section>
+        <h1>Welcome</h1>
+        <Button text="Login with google" onClick={googleLogin} />
+      </section>
     </>
   );
 }
-
+//<button onClick={hola}>login</button>
 export default App;
