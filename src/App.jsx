@@ -6,7 +6,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Login } from "./pages/Login";
 import { CharacterSelector } from "./pages/CharacterSelector";
-
+{
 const firebaseConfig = {
   apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
   authDomain: "dnd2-e4297.firebaseapp.com",
@@ -17,7 +17,7 @@ const firebaseConfig = {
   measurementId: "G-9ZX3XWYK0P",
 };
 
-{
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
