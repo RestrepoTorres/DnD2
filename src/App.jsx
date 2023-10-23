@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./assets/styles/app.css";
+import { Route, Routes } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Login } from "./pages/Login";
+import { CharacterSelector } from "./pages/CharacterSelector";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
@@ -14,47 +17,54 @@ const firebaseConfig = {
   measurementId: "G-9ZX3XWYK0P",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const provider = new GoogleAuthProvider();
-const auth = getAuth();
+{
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
 
-function googleLogin() {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      //console.log(result.user);
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
+  function googleLogin() {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        //console.log(result.user);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  }
 }
-
-function Button({ text, onClick }) {
-  return <button onClick={onClick}>{text}</button>;
-}
-
 function App() {
   return (
     <>
-      <section>
-        <h1>Welcome</h1>
-        <Button text="Login with google" onClick={googleLogin} />
-      </section>
+      <header>
+        <nav>
+          <li>
+            <a href="/"> Login</a>
+          </li>
+          <li>
+            <a href="/character-selector"> Character selector</a>
+          </li>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Login text="holaaa" />} />
+        <Route path="/character-selector" element={<CharacterSelector />} />
+      </Routes>
     </>
   );
 }
