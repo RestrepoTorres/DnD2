@@ -1,22 +1,23 @@
 import { useState } from "react";
 import "./assets/styles/app.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Login } from "./pages/Login";
 import { CharacterSelector } from "./pages/CharacterSelector";
+import { PageNotFound } from "./pages/404";
+import { ButtonLink } from "./components/Button";
 {
-const firebaseConfig = {
-  apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
-  authDomain: "dnd2-e4297.firebaseapp.com",
-  projectId: "dnd2-e4297",
-  storageBucket: "dnd2-e4297.appspot.com",
-  messagingSenderId: "600615642544",
-  appId: "1:600615642544:web:c372b0b6d66df4e73ce275",
-  measurementId: "G-9ZX3XWYK0P",
-};
-
+  const firebaseConfig = {
+    apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
+    authDomain: "dnd2-e4297.firebaseapp.com",
+    projectId: "dnd2-e4297",
+    storageBucket: "dnd2-e4297.appspot.com",
+    messagingSenderId: "600615642544",
+    appId: "1:600615642544:web:c372b0b6d66df4e73ce275",
+    measurementId: "G-9ZX3XWYK0P",
+  };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -48,23 +49,32 @@ const firebaseConfig = {
       });
   }
 }
+function name() {
+  alert("cuidao");
+}
 function App() {
   return (
     <>
       <header>
         <nav>
           <li>
-            <a href="/"> Login</a>
+            <Link to="/"> Login</Link>
           </li>
           <li>
-            <a href="/character-selector"> Character selector</a>
+            <Link to="/character-selector"> Character selector</Link>
           </li>
         </nav>
       </header>
       <Routes>
-        <Route path="/" element={<Login text="holaaa" />} />
+        <Route path="/" element={<Login text="Login" />} />
         <Route path="/character-selector" element={<CharacterSelector />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Button
+        to="Character-selector"
+        text="Click aquí para crear un "
+        fun={name}
+      />
     </>
   );
 }
