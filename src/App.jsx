@@ -6,8 +6,9 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Login } from "./pages/Login";
 import { CharacterSelector } from "./pages/CharacterSelector";
+import { HomePage } from "./pages/HomePage";
 import { PageNotFound } from "./pages/404";
-import { ButtonLink } from "./components/Button";
+import { Button } from "./components/Button";
 {
   const firebaseConfig = {
     apiKey: "AIzaSyB13aXQX87SvCK9U1PhGMRE3r3toUDJfbI",
@@ -58,23 +59,29 @@ function App() {
       <header>
         <nav>
           <li>
-            <Link to="/"> Login</Link>
+            <Link to="/"> HomePage</Link>
+          </li>
+          <li>
+            <Link to="/login"> login</Link>
           </li>
           <li>
             <Link to="/character-selector"> Character selector</Link>
           </li>
         </nav>
       </header>
-      <Routes>
-        <Route path="/" element={<Login text="Login" />} />
-        <Route path="/character-selector" element={<CharacterSelector />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+
       <Button
         to="Character-selector"
         text="Click aquí para crear un "
         fun={name}
       />
+      
+      <Routes>
+        <Route path="/" element={<HomePage text="Homepage" />} />
+        <Route path="/login" element={<Login text="Login" />} />
+        <Route path="/character-selector" element={<CharacterSelector />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </>
   );
 }
