@@ -1,9 +1,9 @@
 import { Route, Routes, Link } from "react-router-dom";
 
-export const Button = ({ to, text, fun }) => {
+export const Button = ({ to, text, handleClick }) => {
   return (
     <Link to={to}>
-      <button onClick={fun}>{text}</button>
+      <button onClick={handleClick}>{text}</button>
     </Link>
   );
 };
