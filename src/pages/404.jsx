@@ -1,0 +1,1 @@
+export const PageNotFound = () => <h1>No se como llegaste, pero no deberias estar aquí </h1>;
