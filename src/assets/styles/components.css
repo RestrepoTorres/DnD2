@@ -1,0 +1,27 @@
+header {
+  background-color: red;
+  width: 90vw;
+}
+
+article {
+  background-color: rgba(65, 141, 84, 0.667);
+  color: #fff;
+  width: 32vw;
+  height: 70vh;
+  position: relative;
+  left: 10%;
+}
+
+footer {
+  width: 90vw;
+  background-color: red;
+}
+
+.articulo {
+  background-color: rgba(65, 141, 84, 0.667);
+  color: #fff;
+  width: 32vw;
+  height: 70vh;
+  position: relative;
+  left: 10%;
+}

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
 import { firebaseToken } from "../components/FireBaseToken";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { Article, Button, Header, Footer } from "/src/components/Components";
 
 const firebaseConfig = firebaseToken;
 const provider = new GoogleAuthProvider();
@@ -25,8 +25,14 @@ export const Login = ({ text }) => {
   }
   return (
     <>
-      <h1>{text} </h1>
-      <Button text="log with Google" handleClick={googleLogin} />
+      <Header></Header>
+      <Article
+      >
+        <Button text="log with Google" handleClick={googleLogin} />
+        
+      </Article>
+      <Footer></Footer>
+
     </>
   );
 };
