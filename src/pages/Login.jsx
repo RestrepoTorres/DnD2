@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
 import { firebaseToken } from "../components/FireBaseToken";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { Article, Button, Header, Footer } from "/src/components/Components";
 
 const firebaseConfig = firebaseToken;
 const provider = new GoogleAuthProvider();
@@ -25,8 +25,18 @@ export const Login = ({ text }) => {
   }
   return (
     <>
-      <h1>{text} </h1>
-      <Button text="log with Google" handleClick={googleLogin} />
+      <Header label="This is a Header, navbar"></Header>
+      <Article>
+        <h1>Please login to start your adventure</h1>
+        <p>
+          DnD2 its a classic history driven rpg. The world of $____$ it's is
+          harsh and merciless, you will probably have to ally yourself with
+          other inhabitants of this world to achieve your goal. Click login
+          start.
+        </p>
+        <Button text="log with Google" handleClick={googleLogin} />
+      </Article>
+      <Footer label="2023. UdeA build with 🖤🐈‍⬛🐦‍⬛🦝"></Footer>
     </>
   );
 };
