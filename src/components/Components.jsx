@@ -12,19 +12,18 @@ export const Button = ({ to, text, handleClick }) => {
   return <button onClick={handleClick}>{text}</button>;
 };
 
-export const Footer = () => {
+export const Footer = ({ label }) => {
   return (
     <footer>
-      <h1>this is footer</h1>
+      <h1>{label}</h1>
     </footer>
   );
 };
 
-
-export const Header = () => {
-    return (
-      <footer>
-        <h1>this is Header</h1>
-      </footer>
-    );
-  };
+export const Header = ({ label, children }) => {
+  return (
+    <header>
+      <h1>{label}</h1>
+    </header>
+  );
+};

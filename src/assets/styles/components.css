@@ -1,27 +1,25 @@
 header {
-  background-color: red;
+  background-color: rgba(67, 91, 102, 0.9);
   width: 90vw;
+  position:relative;
+  top: 0%;  
+  left: 8%;
+  margin-bottom: 2em;
 }
 
 article {
-  background-color: rgba(65, 141, 84, 0.667);
-  color: #fff;
+  background-color: rgba(45, 67, 86, 0.9);
   width: 32vw;
   height: 70vh;
   position: relative;
-  left: 10%;
+  left: 5%;
+  
 }
 
 footer {
   width: 90vw;
-  background-color: red;
-}
-
-.articulo {
-  background-color: rgba(65, 141, 84, 0.667);
-  color: #fff;
-  width: 32vw;
-  height: 70vh;
-  position: relative;
-  left: 10%;
+  background-color: rgba(67, 91, 102, 0.9);
+  position:fixed;
+  bottom: 0%;
+  left: 4%;
 }

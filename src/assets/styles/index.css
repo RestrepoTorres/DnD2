@@ -1,16 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0;
-
-  text-align: center;
-  /*background-color: red;*/
-}
 body {
   color: #fff;
   background-color: #242424;
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 100vh;
-  min-height: 100vh;
+
+  background-image: url("https://cdn2.inkarnate.com/cdn-cgi/image/width=2000,height=1400/https://inkarnate-api-as-production.s3.amazonaws.com/6QuzwX5UMQiAeF7gh39Y8Z");
+  background-size:cover;
+  
+}
+h1{
+  margin: 0;
 }
