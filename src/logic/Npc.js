@@ -1,4 +1,4 @@
-import Entity from "./Entity";
+import Entity from "./Entity.js";
 
 export default class Npc extends Entity {
     faction = "NoFaction";
