@@ -2,11 +2,13 @@ import { Article, Button, Header, Footer } from "/src/components/Components";
 import { firebaseToken } from "../components/FireBaseToken";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import EloRank from "elo-rank";
 
 const firebaseConfig = firebaseToken;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+var elo = new EloRank();
 function validateForm() {
   console.log(document.forms.RegForm.Name.value);
   const mmr = document.forms.RegForm.HP.value * 100;
@@ -14,7 +16,7 @@ function validateForm() {
     first: document.forms.RegForm.Name.value,
     last: "Lovelace",
     born: 1815,
-    mmr: mmr,
+    elo: mmr,
   });
   console.log("Document written with ID: ", docRef.id);
 }
