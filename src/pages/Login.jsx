@@ -21,7 +21,7 @@ export const Login = ({ text }) => {
     //console.log(result.user);
     // IdP data available using getAdditionalUserInfo(result)
     // ...
-    navigate("/main-menu");
+    navigate("/character-selector");
   }
   return (
     <>
