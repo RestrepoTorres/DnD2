@@ -5,17 +5,22 @@ import EloRank from "elo-rank";
 import {
   getFirestore,
   collection,
+  doc,
   addDoc,
+  setDoc,
   getDocs,
   where,
   query,
+  updateDoc,
+  increment,
 } from "firebase/firestore";
 
 const firebaseConfig = firebaseToken;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function queries() {
+async function querie() {
+  //Querie players with elo >2990 from the colection users
   const usersref = collection(db, "users");
   const q = query(usersref, where("elo", ">", 2990));
   const querySnapshot = await getDocs(q);
@@ -23,7 +28,29 @@ async function queries() {
     console.log(doc.id, " => ", doc.data());
   });
 }
-function dumpData() {
+async function addDocument() {
+  // add a doc to the colection citites with the ID LA
+  await setDoc(doc(db, "cities", "LA"), {
+    name: "Los Angeles",
+    state: "CA",
+    population:0,
+    country: "USA",
+  });
+}
+async function update() {
+  //update the document LA from the colection cities, adding the field capital
+  // and modifying the field country and population
+  const cityRef = doc(db, "cities", "LA");
+  setDoc(
+    cityRef,
+    { capital: true, population:increment(50), country: "United states of America" },
+    { merge: true }
+  );
+}
+
+
+
+function dumpFakeData() {
   //import fakedata from "../MOCK_DATA.json";
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data()}`);
