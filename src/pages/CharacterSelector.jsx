@@ -13,6 +13,7 @@ import {
   query,
   updateDoc,
   increment,
+  getDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = firebaseToken;
@@ -33,7 +34,7 @@ async function addDocument() {
   await setDoc(doc(db, "cities", "LA"), {
     name: "Los Angeles",
     state: "CA",
-    population:0,
+    population: 0,
     country: "USA",
   });
 }
@@ -43,12 +44,21 @@ async function update() {
   const cityRef = doc(db, "cities", "LA");
   setDoc(
     cityRef,
-    { capital: true, population:increment(50), country: "United states of America" },
+    {
+      capital: true,
+      population: increment(50),
+      country: "United states of America",
+    },
     { merge: true }
   );
 }
 
-
+async function getDocument() {
+  //Get the document with the id LA from the collection cities
+  const docRef = doc(db, "cities", "LA");
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap.data());
+}
 
 function dumpFakeData() {
   //import fakedata from "../MOCK_DATA.json";
