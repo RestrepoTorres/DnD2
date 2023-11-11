@@ -20,12 +20,11 @@ export const Login = ({ text }) => {
     const user = result.user;
     //console.log(result.user);
     // IdP data available using getAdditionalUserInfo(result)
-    // ...
     navigate("/character-selector");
   }
   return (
     <>
-      <Header label="This is a Header, navbar"></Header>
+      <Header />
       <Article>
         <h1>Please login to start your adventure</h1>
         <p>
@@ -36,7 +35,7 @@ export const Login = ({ text }) => {
         </p>
         <Button text="log with Google" handleClick={googleLogin} />
       </Article>
-      <Footer label="2023. UdeA build with 🖤🐈‍⬛🐦‍⬛🦝"></Footer>
+      <Footer />
     </>
   );
 };

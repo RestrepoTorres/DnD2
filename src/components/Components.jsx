@@ -1,5 +1,11 @@
 import "../assets/styles/components.css";
-
+export const Header = ({ label, children }) => {
+  return (
+    <header>
+      <h1>This is a Header, navbar</h1>
+    </header>
+  );
+};
 export const Article = ({ children }) => {
   return (
     <>
@@ -7,23 +13,14 @@ export const Article = ({ children }) => {
     </>
   );
 };
-
-export const Button = ({ to, text, handleClick }) => {
-  return <button onClick={handleClick}>{text}</button>;
-};
-
-export const Footer = ({ label }) => {
+export const Footer = () => {
   return (
     <footer>
-      <h1>{label}</h1>
+      <h3>Build with 🖤🐈‍⬛🐦‍⬛🦝. 2023 UdeA.</h3>
     </footer>
   );
 };
 
-export const Header = ({ label, children }) => {
-  return (
-    <header>
-      <h1>{label}</h1>
-    </header>
-  );
+export const Button = ({ to, text, handleClick }) => {
+  return <button onClick={handleClick}>{text}</button>;
 };
