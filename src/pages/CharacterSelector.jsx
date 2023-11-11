@@ -1,14 +1,20 @@
 import { Article, Button, Header, Footer } from "/src/components/Components";
-import { querie,addDocument, afterMach, getDocument, dumpFakeData } from "../firebase_back/Firestore_access";
+import {
+  querie,
+  addDocument,
+  afterMach,
+  getDocument,
+  dumpFakeData,
+} from "../firebase_back/Firestore_access";
 import EloRank from "elo-rank";
 
-function formOnClick() {
-  //const elo = document.forms.RegForm.HP.value * 100; obtener info del formulario
-  // fakedata.forEach(function (obj) {
-  //   addDoc(collection(db, "users"), {
-  //     elo: obj.elo,
-  //   });
-  // });
+dumpFakeData()
+async function formOnClick() {
+  const name =  document.forms.RegForm.Name.value;
+  const elo =  document.forms.RegForm.Elo.value;
+  const gamesPlayed =  document.forms.RegForm.gamesPlayed.value;
+  const wonGames =  document.forms.RegForm.wonGames.value;
+  await addDocument(name,elo,gamesPlayed, wonGames)  
 }
 export const CharacterSelector = () => (
   <>
@@ -16,7 +22,7 @@ export const CharacterSelector = () => (
     <Article>
       <form name="RegForm">
         <label>Name:</label>
-
+        <br />
         <input
           type="text"
           name="Name"
@@ -25,25 +31,25 @@ export const CharacterSelector = () => (
           maxLength="15"
           placeholder="Joshua"
         />
-        <br></br>
-
-        <label>HP:</label>
-        <input
-          type="number"
-          name="HP"
-          required
-          min="4"
-          max="15"
-          placeholder="4"
-        />
-        <br></br>
-
+        <br />
+        <label>Elo:</label><br />
+        <input type="number" name="Elo" required placeholder="4" />
+        <br />
+        <label>games played:</label><br />
+        <input type="number" name="gamesPlayed" required placeholder="4" />
+        <br />
+        <label>Won games:</label><br />
+        <input type="number" name="wonGames" required placeholder="4" />
+        <br />
+        <br />
         <input
           type="submit"
-          value="Crear personaje"
+          value="form button"
           onClick={formOnClick}
         ></input>
       </form>
+
+      <Button text ='my button' handleClick={formOnClick}/>
     </Article>
   </>
 );

@@ -43,6 +43,7 @@ export async function addDocument(name, elo, gamesPlayed, wins) {
     wins: wins,
     winRate: wins / gamesPlayed,
   });
+
 }
 
 export async function afterMach(id, points, win) {
@@ -66,8 +67,8 @@ export async function afterMach(id, points, win) {
   );
 }
 
-export async function getDocument(collection, id) {
-  const docRef = doc(db, collection, id);
+export async function getDocument( id) {
+  const docRef = doc(db, "players", id);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
