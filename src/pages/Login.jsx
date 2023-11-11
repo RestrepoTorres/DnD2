@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { firebaseToken } from "../components/FireBaseToken";
+import { firebaseToken } from "../firebase_back/FireBaseToken";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { Article, Button, Header, Footer } from "/src/components/Components";
