@@ -1,25 +1,17 @@
-header {
-  background-color: rgba(67, 91, 102, 0.9);
-  width: 90vw;
-  position:relative;
-  top: 0%;  
-  left: 8%;
-  margin-bottom: 2em;
-}
-
 article {
-  background-color: rgba(45, 67, 86, 0.9);
-  width: 32vw;
-  height: 70vh;
-  position: relative;
-  left: 5%;
-  
+  box-sizing: border-box;
+  background-color: rgba(29, 25, 22, 0.95);
+  width: 60%;
+  height: 90%;
+  display: grid;
+  place-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
+header,
 footer {
-  width: 90vw;
-  background-color: rgba(67, 91, 102, 0.9);
-  position:fixed;
-  bottom: 0%;
-  left: 4%;
+  width: 100%;
+  background-color: rgba(29, 25, 22, 0.95);
+  text-align: center;
 }

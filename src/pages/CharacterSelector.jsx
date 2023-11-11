@@ -21,8 +21,10 @@ export const CharacterSelector = () => {
   }
   return (
     <>
-      <h1>Character Selector </h1>
+      <Header />
+
       <Article>
+        <h1>Character Selector </h1>
         <form name="RegForm">
           <label>Name:</label>
           <br />
@@ -57,6 +59,7 @@ export const CharacterSelector = () => {
 
         <Button text="my button" handleClick={formOnClick} />
       </Article>
+      <Footer />
     </>
   );
 };
