@@ -5,6 +5,7 @@
   },
   "hosting": {
     "public": "dist",
+    "site": "codenamednd2",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -18,3 +19,5 @@
     ]
   }
 }
+
+
