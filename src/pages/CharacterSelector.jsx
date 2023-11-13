@@ -7,7 +7,6 @@ import {
   getDocument,
   dumpFakeData,
 } from "../firebase_back/Firestore_access";
-import EloRank from "elo-rank";
 
 async function formOnClick(event, navigate) {
   event.preventDefault();
@@ -29,7 +28,7 @@ export const CharacterSelector = () => {
       <Article>
         <h1>Character Selector </h1>
         <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
-          <label>Name:</label>
+          <label for="name">Name:</label>
           <br />
           <input
             type="text"
@@ -37,20 +36,33 @@ export const CharacterSelector = () => {
             required
             minLength="4"
             maxLength="15"
-            placeholder="Joshua"
+            id="name"
+            autocomplete="given-name"
           />
           <br />
-          <label>Elo:</label>
+          <label for="elo">Elo:</label>
           <br />
-          <input type="number" name="Elo" required placeholder="4" />
+          <input type="number" name="Elo" id="elo" required placeholder="4" />
           <br />
-          <label>games played:</label>
+          <label for="gamesPlayed">games played:</label>
           <br />
-          <input type="number" name="gamesPlayed" required placeholder="4" />
+          <input
+            type="number"
+            name="gamesPlayed"
+            id="gamesPlayed"
+            required
+            placeholder="4"
+          />
           <br />
-          <label>Won games:</label>
+          <label for="wonGames">Won games:</label>
           <br />
-          <input type="number" name="wonGames" required placeholder="4" />
+          <input
+            type="number"
+            name="wonGames"
+            id="wonGames"
+            required
+            placeholder="4"
+          />
           <br />
           <br />
           <input type="submit" value="Create player"></input>
