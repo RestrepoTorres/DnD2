@@ -9,19 +9,19 @@ const provider = new GoogleAuthProvider();
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
+async function googleLogin(navigate) {
+  const result = await signInWithPopup(auth, provider);
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  // The signed-in user info.
+  const user = result.user;
+  //console.log(result.user);
+  // IdP data available using getAdditionalUserInfo(result)
+  navigate("/character-selector");
+}
 export const Login = ({ text }) => {
   const navigate = useNavigate();
-  async function googleLogin() {
-    const result = await signInWithPopup(auth, provider);
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    //console.log(result.user);
-    // IdP data available using getAdditionalUserInfo(result)
-    navigate("/character-selector");
-  }
   return (
     <>
       <Header />
@@ -33,7 +33,7 @@ export const Login = ({ text }) => {
           other inhabitants of this world to achieve your goal. Click login
           start.
         </p>
-        <Button text="log with Google" handleClick={googleLogin} />
+        <Button text="log with Google" handleClick={()=>googleLogin(navigate)} />
       </Article>
       <Footer />
     </>

@@ -9,23 +9,26 @@ import {
 } from "../firebase_back/Firestore_access";
 import EloRank from "elo-rank";
 
+async function formOnClick(event, navigate) {
+  event.preventDefault();
+  const name = document.forms.RegForm.Name.value;
+  const elo = document.forms.RegForm.Elo.value;
+  const gamesPlayed = document.forms.RegForm.gamesPlayed.value;
+  const wonGames = document.forms.RegForm.wonGames.value;
+  await addDocument(name, elo, gamesPlayed, wonGames);
+  navigate("/main-menu");
+}
+
 export const CharacterSelector = () => {
   const navigate = useNavigate();
-  async function formOnClick() {
-    const name = document.forms.RegForm.Name.value;
-    const elo = document.forms.RegForm.Elo.value;
-    const gamesPlayed = document.forms.RegForm.gamesPlayed.value;
-    const wonGames = document.forms.RegForm.wonGames.value;
-    await addDocument(name, elo, gamesPlayed, wonGames);
-    navigate("/main-menu");
-  }
+
   return (
     <>
       <Header />
 
       <Article>
         <h1>Character Selector </h1>
-        <form name="RegForm">
+        <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
           <label>Name:</label>
           <br />
           <input
@@ -50,14 +53,8 @@ export const CharacterSelector = () => {
           <input type="number" name="wonGames" required placeholder="4" />
           <br />
           <br />
-          <input
-            type="submit"
-            value="form button"
-            onClick={formOnClick}
-          ></input>
+          <input type="submit" value="Create player"></input>
         </form>
-
-        <Button text="my button" handleClick={formOnClick} />
       </Article>
       <Footer />
     </>
