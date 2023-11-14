@@ -1,21 +1,22 @@
 import { Article, Button, Header, Footer } from "/src/components/Components";
 import { useNavigate } from "react-router-dom";
-import {
-  querie,
-  addDocument,
-  afterMach,
-  getDocument,
-  dumpFakeData,
-} from "../firebase_back/Firestore_access";
+import { addDocument, dumpFakeData } from "../firebase_back/Firestore_access";
 
 async function formOnClick(event, navigate) {
   event.preventDefault();
-  const name = document.forms.RegForm.Name.value;
+  const CharacterName = document.forms.RegForm.Name.value;
   const elo = document.forms.RegForm.Elo.value;
   const gamesPlayed = document.forms.RegForm.gamesPlayed.value;
   const wonGames = document.forms.RegForm.wonGames.value;
-  await addDocument(name, elo, gamesPlayed, wonGames);
-  navigate("/main-menu");
+  await addDocument(
+    localStorage.getItem("uid"),
+    localStorage.getItem("displayName"),
+    CharacterName,
+    elo,
+    gamesPlayed,
+    wonGames
+  );
+  navigate("/search-opponents");
 }
 
 export const CharacterSelector = () => {
@@ -28,7 +29,7 @@ export const CharacterSelector = () => {
       <Article>
         <h1>Character Selector </h1>
         <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
-          <label for="name">Name:</label>
+          <label>Name:</label>
           <br />
           <input
             type="text"
@@ -36,33 +37,20 @@ export const CharacterSelector = () => {
             required
             minLength="4"
             maxLength="15"
-            id="name"
-            autocomplete="given-name"
+            autoComplete="given-name"
           />
           <br />
-          <label for="elo">Elo:</label>
+          <label>Elo:</label>
           <br />
           <input type="number" name="Elo" id="elo" required placeholder="4" />
           <br />
-          <label for="gamesPlayed">games played:</label>
+          <label>games played:</label>
           <br />
-          <input
-            type="number"
-            name="gamesPlayed"
-            id="gamesPlayed"
-            required
-            placeholder="4"
-          />
+          <input type="number" name="gamesPlayed" required placeholder="4" />
           <br />
-          <label for="wonGames">Won games:</label>
+          <label>Won games:</label>
           <br />
-          <input
-            type="number"
-            name="wonGames"
-            id="wonGames"
-            required
-            placeholder="4"
-          />
+          <input type="number" name="wonGames" required placeholder="4" />
           <br />
           <br />
           <input type="submit" value="Create player"></input>
