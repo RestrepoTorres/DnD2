@@ -12,9 +12,9 @@ async function formOnClick(event, navigate) {
     localStorage.getItem("uid"),
     localStorage.getItem("displayName"),
     CharacterName,
-    elo,
-    gamesPlayed,
-    wonGames
+    parseInt(elo),
+    parseInt(gamesPlayed),
+    parseInt(wonGames)
   );
   navigate("/search-opponents");
 }
@@ -36,7 +36,6 @@ export const CharacterSelector = () => {
             name="Name"
             required
             minLength="4"
-            maxLength="15"
             autoComplete="given-name"
           />
           <br />
