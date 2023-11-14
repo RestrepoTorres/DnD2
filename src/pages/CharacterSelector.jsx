@@ -10,11 +10,18 @@ import {
 
 async function formOnClick(event, navigate) {
   event.preventDefault();
-  const name = document.forms.RegForm.Name.value;
+  const CharacterName = document.forms.RegForm.Name.value;
   const elo = document.forms.RegForm.Elo.value;
   const gamesPlayed = document.forms.RegForm.gamesPlayed.value;
   const wonGames = document.forms.RegForm.wonGames.value;
-  await addDocument(name, elo, gamesPlayed, wonGames);
+  await addDocument(
+    localStorage.getItem("uid"),
+    localStorage.getItem("displayName"),
+    CharacterName,
+    elo,
+    gamesPlayed,
+    wonGames
+  );
   navigate("/main-menu");
 }
 
@@ -28,7 +35,7 @@ export const CharacterSelector = () => {
       <Article>
         <h1>Character Selector </h1>
         <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
-          <label >Name:</label>
+          <label>Name:</label>
           <br />
           <input
             type="text"
@@ -39,27 +46,17 @@ export const CharacterSelector = () => {
             autoComplete="given-name"
           />
           <br />
-          <label >Elo:</label>
+          <label>Elo:</label>
           <br />
           <input type="number" name="Elo" id="elo" required placeholder="4" />
           <br />
           <label>games played:</label>
           <br />
-          <input
-            type="number"
-            name="gamesPlayed"
-            required
-            placeholder="4"
-          />
+          <input type="number" name="gamesPlayed" required placeholder="4" />
           <br />
           <label>Won games:</label>
           <br />
-          <input
-            type="number"
-            name="wonGames"
-            required
-            placeholder="4"
-          />
+          <input type="number" name="wonGames" required placeholder="4" />
           <br />
           <br />
           <input type="submit" value="Create player"></input>

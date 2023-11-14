@@ -35,15 +35,22 @@ export async function querie(lowest, highest) {
   });
 }
 
-export async function addDocument(name, elo, gamesPlayed, wins) {
-  await setDoc(doc(db, "players", name), {
-    name: name,
+export async function addDocument(
+  id,
+  userName,
+  CharacterName,
+  elo,
+  gamesPlayed,
+  wins
+) {
+  await setDoc(doc(db, "players", id), {
+    userName: userName,
+    CharacterName: CharacterName,
     elo: elo,
     gamesPlayed: gamesPlayed,
     wins: wins,
     winRate: wins / gamesPlayed,
   });
-
 }
 
 export async function afterMach(id, points, win) {
@@ -67,7 +74,7 @@ export async function afterMach(id, points, win) {
   );
 }
 
-export async function getDocument( id) {
+export async function getDocument(id) {
   const docRef = doc(db, "players", id);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
