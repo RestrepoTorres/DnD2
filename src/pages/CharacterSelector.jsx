@@ -28,7 +28,7 @@ export const CharacterSelector = () => {
       <Article>
         <h1>Character Selector </h1>
         <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
-          <label for="name">Name:</label>
+          <label >Name:</label>
           <br />
           <input
             type="text"
@@ -36,30 +36,27 @@ export const CharacterSelector = () => {
             required
             minLength="4"
             maxLength="15"
-            id="name"
-            autocomplete="given-name"
+            autoComplete="given-name"
           />
           <br />
-          <label for="elo">Elo:</label>
+          <label >Elo:</label>
           <br />
           <input type="number" name="Elo" id="elo" required placeholder="4" />
           <br />
-          <label for="gamesPlayed">games played:</label>
+          <label>games played:</label>
           <br />
           <input
             type="number"
             name="gamesPlayed"
-            id="gamesPlayed"
             required
             placeholder="4"
           />
           <br />
-          <label for="wonGames">Won games:</label>
+          <label>Won games:</label>
           <br />
           <input
             type="number"
             name="wonGames"
-            id="wonGames"
             required
             placeholder="4"
           />
