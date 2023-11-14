@@ -1,12 +1,6 @@
 import { Article, Button, Header, Footer } from "/src/components/Components";
 import { useNavigate } from "react-router-dom";
-import {
-  querie,
-  addDocument,
-  afterMach,
-  getDocument,
-  dumpFakeData,
-} from "../firebase_back/Firestore_access";
+import { addDocument, dumpFakeData } from "../firebase_back/Firestore_access";
 
 async function formOnClick(event, navigate) {
   event.preventDefault();
@@ -22,7 +16,7 @@ async function formOnClick(event, navigate) {
     gamesPlayed,
     wonGames
   );
-  navigate("/main-menu");
+  navigate("/search-opponents");
 }
 
 export const CharacterSelector = () => {
