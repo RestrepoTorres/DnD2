@@ -29,16 +29,17 @@ export function correctInterval(winrate) {
 
 export function searchRivals(player) {
   const normalRange = 45;
-  elo = parseInt(player.elo);
+
+  elo = player.elo;
   if (player.winRate > 0.55) {
-    queryByElo(elo + normalRange, elo + correctInterval(player.winRate));
+    return queryByElo(elo + normalRange, elo + correctInterval(player.winRate));
   } else {
-    queryByElo(elo - normalRange, elo + normalRange);
+    return queryByElo(elo - normalRange, elo + normalRange);
   }
 }
 
- async function queryByElo(lowest, highest) {
-  const usersref = collection(db, "users");
+async function queryByElo(lowest, highest) {
+  const usersref = collection(db, "players");
   const q = query(
     usersref,
     orderBy("elo"),
@@ -47,9 +48,12 @@ export function searchRivals(player) {
   );
 
   const querySnapshot = await getDocs(q);
+  const p = [];
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
+    //console.log(doc.id, " => ", doc.data());
+    p.push(doc.data());
   });
+  return p;
 }
 
 export async function addDocument(
@@ -66,7 +70,7 @@ export async function addDocument(
     elo: elo,
     gamesPlayed: gamesPlayed,
     wins: wins,
-    winRate: (parseFloat(wins / gamesPlayed)).toFixed(4),
+    winRate: wins / gamesPlayed,
   });
 }
 
@@ -99,14 +103,7 @@ export async function getDocument(id) {
 
 export function dumpFakeData() {
   fakedata.forEach((doc) => {
-    addDocument(
-      doc.name,
-      doc.name,
-      doc.name,
-      doc.elo,
-      doc.gamesPlayed,
-      doc.wins
-    );
+    addDocument(doc.name, doc.elo, doc.gamesPlayed, doc.wins);
   });
 }
 

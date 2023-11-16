@@ -3,11 +3,20 @@ import { searchRivals, getDocument } from "../firebase_back/Firestore_access";
 
 async function player() {
   const player = await getDocument(localStorage.getItem("uid"));
-  searchRivals(player);
+
+  return searchRivals(player);
 }
+const querie = await player();
+console.log(querie);
+const arrayDataItems = querie.map((doc) => (
+  <li key={doc.userName}>
+    <p>
+      {doc.userName}, {doc.elo}
+    </p>
+  </li>
+));
 
 export const SearchOpponents = () => {
-  player();
   return (
     <>
       <Header></Header>
@@ -15,8 +24,8 @@ export const SearchOpponents = () => {
         <h1>Search for opponents</h1>
         <div>
           <p>{localStorage.getItem("displayName")}</p>
-          <img src={localStorage.getItem("photoURL")} />
         </div>
+        <ul>{arrayDataItems}</ul>
       </Article>
       <Footer></Footer>
     </>
