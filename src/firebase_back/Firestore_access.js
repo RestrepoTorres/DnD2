@@ -66,7 +66,7 @@ export async function addDocument(
     elo: elo,
     gamesPlayed: gamesPlayed,
     wins: wins,
-    winRate: wins / gamesPlayed,
+    winRate: (parseFloat(wins / gamesPlayed)).toFixed(4),
   });
 }
 
@@ -99,7 +99,14 @@ export async function getDocument(id) {
 
 export function dumpFakeData() {
   fakedata.forEach((doc) => {
-    addDocument(doc.name, doc.elo, doc.gamesPlayed, doc.wins);
+    addDocument(
+      doc.name,
+      doc.name,
+      doc.name,
+      doc.elo,
+      doc.gamesPlayed,
+      doc.wins
+    );
   });
 }
 

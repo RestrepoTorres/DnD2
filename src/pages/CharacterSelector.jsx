@@ -14,7 +14,6 @@ async function formOnClick(event, navigate) {
     CharacterName,
     parseInt(elo),
     parseInt(gamesPlayed),
-    parseInt(wonGames)
   );
   navigate("/search-opponents");
 }

@@ -2,7 +2,7 @@ import "../assets/styles/components.css";
 export const Header = ({ label, children }) => {
   return (
     <header>
-      <h1>This is a Header, navbar</h1>
+      <h1>CODE NAME: DnD2</h1>
     </header>
   );
 };
