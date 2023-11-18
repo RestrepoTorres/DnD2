@@ -88,14 +88,21 @@ export async function afterMach(id, points, win) {
 }
 
 export function dumpFakeData() {
-  async function addFakeUser(avatar, name, uid) {
+  async function addFakeUser(name, uid) {
     await setDoc(doc(db, "users", "" + uid), {
       name: name,
-      avatar: avatar,
     });
   }
 
-  async function addFakeCharacter(name, elo, gamesPlayed, wins, winRate, id) {
+  async function addFakeCharacter(
+    name,
+    elo,
+    gamesPlayed,
+    wins,
+    winRate,
+    id,
+    avatar
+  ) {
     await setDoc(doc(db, "characters", "" + id), {
       nick: name,
       elo: elo,
@@ -103,6 +110,7 @@ export function dumpFakeData() {
       wins: wins,
       userId: id,
       winRate: winRate,
+      avatar: avatar,
     });
   }
   fakedata.forEach((doc) => {
@@ -112,8 +120,10 @@ export function dumpFakeData() {
       doc.gamesPlayed,
       doc.wins,
       doc.wins / doc.gamesPlayed,
-      doc.id
+      doc.id,
+      doc.avatar
     );
-    addFakeUser(doc.avatar, doc.name, doc.id);
+    addFakeUser(doc.name, doc.id);
   });
 }
+
