@@ -12,12 +12,16 @@
   background-image: url("../assets/images/background.jpg");
   background-size: cover;
 }
-
+body {
+  margin: 0;
+}
 h1,
 h2,
 h3 {
   margin: 0;
 }
-body {
-  margin: 0;
+
+ul {
+  columns: 2;
+  min-width: 100%;
 }
