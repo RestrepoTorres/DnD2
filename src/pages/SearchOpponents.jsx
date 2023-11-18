@@ -1,31 +1,37 @@
-import { Article, Button, Header, Footer } from "/src/components/Components";
+import { Article, Header, Footer } from "/src/components/Components";
 import { searchRivals, getDocument } from "../firebase_back/Firestore_access";
-
-async function player() {
-  const player = await getDocument(localStorage.getItem("uid"));
-
-  return searchRivals(player);
-}
-const querie = await player();
-console.log(querie);
-const arrayDataItems = querie.map((doc) => (
-  <li key={doc.userName}>
-    <p>
-      {doc.userName}, {doc.elo}
-    </p>
-  </li>
-));
+import { useState, useEffect } from "react";
 
 export const SearchOpponents = () => {
+  const [potentialRivals, setPotentialRivals] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const player = await getDocument(
+        "characters",
+        localStorage.getItem("uid")
+      );
+      const rivals = await searchRivals(player);
+      setPotentialRivals(rivals);
+    };
+
+    localStorage.getItem("uid") && fetchUserData();
+  }, []);
+
   return (
     <>
       <Header></Header>
       <Article>
         <h1>Search for opponents</h1>
-        <div>
-          <p>{localStorage.getItem("displayName")}</p>
-        </div>
-        <ul>{arrayDataItems}</ul>
+        <ul>
+          {potentialRivals.map((doc) => (
+            <li key={doc.nick}>
+              <p>
+                {doc.nick}, {doc.elo}
+              </p>
+            </li>
+          ))}
+        </ul>
       </Article>
       <Footer></Footer>
     </>

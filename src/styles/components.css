@@ -3,6 +3,7 @@ article {
   background-color: rgba(29, 25, 22, 0.95);
   width: 60%;
   height: 90%;
+  
   display: grid;
   place-items: center;
   padding-left: 5%;
