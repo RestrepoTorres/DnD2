@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { firebaseToken } from "../firebase_back/FireBaseToken";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { Article, Button, Header, Footer } from "/src/components/Components";
 
@@ -15,9 +15,9 @@ async function googleLogin(navigate) {
   localStorage.setItem("uid", user.uid);
   localStorage.setItem("displayName", user.displayName);
   localStorage.setItem("photoURL", user.photoURL);
-  navigate("/character-selector");
+  navigate("/character-creator");
 }
-export const Login = ({ text }) => {
+export const Login = () => {
   const navigate = useNavigate();
   return (
     <>
@@ -31,7 +31,7 @@ export const Login = ({ text }) => {
           start.
         </p>
         <Button
-          text="log with Google"
+          label="log with Google"
           handleClick={() => googleLogin(navigate)}
         />
       </Article>

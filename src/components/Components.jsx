@@ -1,8 +1,8 @@
-import "../assets/styles/components.css";
-export const Header = ({ label, children }) => {
+import "../styles/components.css";
+export const Header = () => {
   return (
     <header>
-      <h1>This is a Header, navbar</h1>
+      <h1>CODE NAME: DnD2</h1>
     </header>
   );
 };
@@ -21,6 +21,6 @@ export const Footer = () => {
   );
 };
 
-export const Button = ({ to, text, handleClick }) => {
-  return <button onClick={handleClick}>{text}</button>;
+export const Button = ({ label, handleClick }) => {
+  return <button onClick={handleClick}>{label}</button>;
 };

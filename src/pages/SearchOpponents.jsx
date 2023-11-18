@@ -1,22 +1,43 @@
-import { Article, Button, Header, Footer } from "/src/components/Components";
+import { Article, Header, Footer } from "/src/components/Components";
 import { searchRivals, getDocument } from "../firebase_back/Firestore_access";
-
-async function player() {
-  const player = await getDocument(localStorage.getItem("uid"));
-  searchRivals(player);
-}
+import { useState, useEffect } from "react";
 
 export const SearchOpponents = () => {
-  player();
+  const [potentialRivals, setPotentialRivals] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const player = await getDocument(
+        "characters",
+        localStorage.getItem("uid")
+      );
+      const rivals = await searchRivals(player);
+      setPotentialRivals(rivals);
+    };
+
+    localStorage.getItem("uid") && fetchUserData();
+  }, []);
+  async function avatar() {
+    const a = await getDocument("users", "1");
+    return "a";
+  }
   return (
     <>
       <Header></Header>
       <Article>
         <h1>Search for opponents</h1>
-        <div>
-          <p>{localStorage.getItem("displayName")}</p>
-          <img src={localStorage.getItem("photoURL")} />
-        </div>
+        <ul>
+          {potentialRivals.map( (doc) => (
+            <li key={doc.nick}>
+              <img src={doc.avatar} alt="player avatar" />
+              <p>
+                {doc.nick}, {doc.elo}
+              </p>
+
+
+            </li>
+          ))}
+        </ul>
       </Article>
       <Footer></Footer>
     </>

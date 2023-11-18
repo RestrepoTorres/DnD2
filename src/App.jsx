@@ -1,21 +1,16 @@
-import { useState } from "react";
-import "./assets/styles/app.css";
-import { Route, Routes, Link } from "react-router-dom";
-import { CharacterSelector } from "./pages/CharacterSelector";
+import "./styles/app.css";
+import { Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
-import { PageNotFound } from "./pages/404";
+import { CharacterCreator } from "./pages/CharacterCreator";
 import { SearchOpponents } from "./pages/SearchOpponents";
+import { PageNotFound } from "./pages/404";
 
 function App() {
   return (
     <>
-      {" "}
       <Routes>
-        <Route
-          path="/"
-          element={<Login text="Welcome, this is the landing page" />}
-        />
-        <Route path="/character-selector" element={<CharacterSelector />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/character-creator" element={<CharacterCreator />} />
         <Route path="/search-opponents" element={<SearchOpponents />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

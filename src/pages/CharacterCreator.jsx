@@ -1,35 +1,28 @@
 import { Article, Button, Header, Footer } from "/src/components/Components";
 import { useNavigate } from "react-router-dom";
-import { addDocument, dumpFakeData } from "../firebase_back/Firestore_access";
+import { addCharacter, addUser } from "../firebase_back/Firestore_access";
 
 async function formOnClick(event, navigate) {
   event.preventDefault();
   const CharacterName = document.forms.RegForm.Name.value;
-  const elo = document.forms.RegForm.Elo.value;
-  const gamesPlayed = document.forms.RegForm.gamesPlayed.value;
-  const wonGames = document.forms.RegForm.wonGames.value;
-  await addDocument(
-    localStorage.getItem("uid"),
-    localStorage.getItem("displayName"),
-    CharacterName,
-    parseInt(elo),
-    parseInt(gamesPlayed),
-    parseInt(wonGames)
-  );
+  const elo = parseInt(document.forms.RegForm.Elo.value);
+  const gamesPlayed = parseInt(document.forms.RegForm.gamesPlayed.value);
+  const wonGames = parseInt(document.forms.RegForm.wonGames.value);
+  const winRate = wonGames / gamesPlayed;
+  await addUser();
+  await addCharacter(CharacterName, elo, gamesPlayed, wonGames, winRate);
   navigate("/search-opponents");
 }
 
-export const CharacterSelector = () => {
+export const CharacterCreator = () => {
   const navigate = useNavigate();
-
   return (
     <>
       <Header />
-
       <Article>
         <h1>Character Selector </h1>
         <form name="RegForm" onSubmit={(event) => formOnClick(event, navigate)}>
-          <label>Name:</label>
+          <label>Nick Name:</label>
           <br />
           <input
             type="text"
