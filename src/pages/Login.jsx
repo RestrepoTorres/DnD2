@@ -3,6 +3,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { Article, Button, Header, Footer } from "/src/components/Components";
+import { RaceSelector } from "./RaceSelector";
 
 const firebaseConfig = firebaseToken;
 const provider = new GoogleAuthProvider();
@@ -21,6 +22,7 @@ export const Login = () => {
   const navigate = useNavigate();
   return (
     <>
+      
       <Header />
       <Article>
         <h1>Please login to start your adventure</h1>

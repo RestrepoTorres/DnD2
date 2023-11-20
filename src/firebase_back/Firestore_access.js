@@ -1,4 +1,5 @@
 import fakedata from "./MOCK_DATA.json";
+import races from "./Races.json";
 import { firebaseToken } from "./FireBaseToken";
 import { initializeApp } from "firebase/app";
 import {
@@ -127,3 +128,13 @@ export function dumpFakeData() {
   });
 }
 
+async function addRaces() {
+  races.forEach((docu) => {
+    setDoc(doc(db, "races", docu.nombre), {
+      name: docu.nombre,
+      description: docu.descripcion,
+      habilities: docu.habilidades,
+      stats: docu.estadisticas_base,
+    });
+  });
+}
