@@ -1,0 +1,57 @@
+[
+  {
+    "nombre": "Elfos del Bosque",
+    "descripcion": "Hábiles en la arquería y la magia natural.",
+    "habilidades": ["Tiro con arco", "Manipulación de la naturaleza"],
+    "estadisticas_base": {
+      "fuerza": 3,
+      "destreza": 8,
+      "inteligencia": 6,
+      "vida": 100
+    }
+  },
+  {
+    "nombre": "Altos Elfos",
+    "descripcion": "Maestros en el arte de la magia arcana.",
+    "habilidades": ["Magia arcana avanzada", "Teletransportación"],
+    "estadisticas_base": {
+      "fuerza": 4,
+      "destreza": 6,
+      "inteligencia": 9,
+      "vida": 90
+    }
+  },
+  {
+    "nombre": "Orcos",
+    "descripcion": "Fuerza bruta y resistencia física.",
+    "habilidades": ["Golpe devastador", "Inmunidad a venenos"],
+    "estadisticas_base": {
+      "fuerza": 9,
+      "destreza": 5,
+      "inteligencia": 3,
+      "vida": 120
+    }
+  },
+  {
+    "nombre": "Humanos",
+    "descripcion": "Versátiles y adaptables.",
+    "habilidades": ["Habilidades diversas", "Diplomacia"],
+    "estadisticas_base": {
+      "fuerza": 6,
+      "destreza": 6,
+      "inteligencia": 6,
+      "vida": 100
+    }
+  },
+  {
+    "nombre": "Enanos",
+    "descripcion": "Hábiles en la forja y la resistencia.",
+    "habilidades": ["Forja maestra", "Resistencia a condiciones adversas"],
+    "estadisticas_base": {
+      "fuerza": 7,
+      "destreza": 4,
+      "inteligencia": 5,
+      "vida": 110
+    }
+  }
+]
