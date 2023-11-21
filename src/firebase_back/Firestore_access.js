@@ -27,7 +27,8 @@ export async function addCharacter(
   gamesPlayed,
   wins,
   winRate,
-  race
+  race,
+  classs
 ) {
   const uid = localStorage.getItem("uid");
   await setDoc(doc(db, "characters", "" + uid), {
@@ -38,6 +39,7 @@ export async function addCharacter(
     userId: uid,
     winRate: winRate,
     race: race,
+    class: classs
   });
 }
 

@@ -15,8 +15,17 @@ async function formOnClick(event, navigate) {
   const wonGames = parseInt(document.forms.RegForm.wonGames.value);
   const winRate = wonGames / gamesPlayed;
   const race = document.forms.RegForm.race.value;
+  const classs = document.forms.RegForm.Class.value;
   await addUser();
-  await addCharacter(CharacterName, elo, gamesPlayed, wonGames, winRate, race);
+  await addCharacter(
+    CharacterName,
+    elo,
+    gamesPlayed,
+    wonGames,
+    winRate,
+    race,
+    classs
+  );
   navigate("/search-opponents");
 }
 
@@ -31,6 +40,17 @@ export const CharacterCreator = () => {
       destreza: 6,
       inteligencia: 9,
       vida: 90,
+    },
+  });
+
+  const [classs, setClass] = useState({
+    name: "Warrior",
+    description: "A mighty and skilled warrior skilled in close combat.",
+    stats: {
+      destreza: 4,
+      fuerza: 10,
+      inteligencia: 2,
+      vida: 120,
     },
   });
 
@@ -88,11 +108,14 @@ export const CharacterCreator = () => {
             <br />
             <select
               name="Class"
-              //onChange={async () =>
-              //</form>setRace(
-              //await getDocument("races", document.forms.RegForm.race.value)
-              //)
-              //}
+              onChange={async () =>
+                setClass(
+                  await getDocument(
+                    "classes",
+                    document.forms.RegForm.Class.value
+                  )
+                )
+              }
             >
               <option>Warrior</option>
               <option>Rogue</option>
@@ -107,13 +130,18 @@ export const CharacterCreator = () => {
 
         <Article>
           <h1>{race.name}</h1>
-          <p>Descripción : {race.description}</p>
+          <p>Race description : {race.description}</p>
           <p>habilidad principal: {race.habilities[0]}</p>
           <p>habilidad secundaria: {race.habilities[1]}</p>
-          <p>fuerza = {race.stats["fuerza"]}</p>
-          <p>inteligencia = {race.stats["inteligencia"]}</p>
-          <p>destreza = {race.stats["destreza"]}</p>
-          <p>vida = {race.stats["vida"]}</p>
+
+          <h1>{classs.name}</h1>
+          <p>class description: {classs.description}</p>
+
+          <h1>Stats</h1>
+          <p>fuerza = {race.stats["fuerza"]+classs.stats["fuerza"]}</p>
+          <p>inteligencia = {race.stats["inteligencia"]+classs.stats["inteligencia"]}</p>
+          <p>destreza = {race.stats["destreza"]+classs.stats["destreza"]}</p>
+          <p>vida = {race.stats["vida"]+classs.stats["vida"]}</p>
         </Article>
       </div>
       <Footer />
