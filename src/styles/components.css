@@ -7,7 +7,7 @@ article {
   overflow-y:auto ;
   display: grid;
   padding-bottom: 5%;
-  grid-template-rows: 10fr 90fr ;
+  grid-template-rows: 10fr 70fr ;
   place-items: center;
   padding-left: 15%;
   padding-right: 15%;
