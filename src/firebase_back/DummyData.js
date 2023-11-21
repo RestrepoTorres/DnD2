@@ -1,5 +1,27 @@
 import fakedata from "./MOCK_DATA.json";
 import races from "./Races.json";
+import clases from "./Class.json";
+import { firebaseToken } from "./FireBaseToken";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+  where,
+  query,
+  increment,
+  getDoc,
+  orderBy,
+  startAt,
+  endAt,
+} from "firebase/firestore";
+import EloRank from "elo-rank";
+
+const firebaseConfig = firebaseToken;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 export function dumpFakeData() {
   async function addFakeUser(name, uid) {
@@ -48,6 +70,16 @@ async function addRaces() {
       description: docu.descripcion,
       habilities: docu.habilidades,
       stats: docu.estadisticas_base,
+    });
+  });
+}
+
+export async function addClasses() {
+  clases.forEach((document) => {
+    setDoc(doc(db, "classes", document.name), {
+      name: document.name,
+      description: document.description,
+      stats: document.stats,
     });
   });
 }

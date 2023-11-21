@@ -1,0 +1,42 @@
+[
+  {
+    "stats": {
+      "fuerza": 10,
+      "destreza": 4,
+      "inteligencia": 2,
+      "vida": 120
+    },
+    "name": "Warrior",
+    "description": "A mighty and skilled warrior skilled in close combat."
+  },
+  {
+    "stats": {
+      "fuerza": 9,
+      "destreza": 14,
+      "inteligencia": 7,
+      "vida": 85
+    },
+    "name": "Rogue",
+    "description": "A cunning and agile rogue, skilled in stealth and precision attacks."
+  },
+  {
+    "stats": {
+      "fuerza": 3,
+      "destreza": 8,
+      "inteligencia": 15,
+      "vida": 80
+    },
+    "name": "Mage",
+    "description": "A powerful mage with mastery over arcane arts and spells."
+  },
+  {
+    "stats": {
+      "fuerza": 5,
+      "destreza": 17,
+      "inteligencia": 9,
+      "vida": 80
+    },
+    "name": "Marksman",
+    "description": "A skilled marksman known for accuracy and long-range attacks."
+  }
+]
