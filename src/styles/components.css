@@ -1,14 +1,16 @@
 article {
   box-sizing: border-box;
   background-color: rgba(29, 25, 22, 0.95);
-  width: 60%;
+  width: 90%;
   height: 100%;
   max-height: 100%;
   overflow-y:auto ;
   display: grid;
+  padding-bottom: 5%;
+  grid-template-rows: 10fr 90fr ;
   place-items: center;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 header,
