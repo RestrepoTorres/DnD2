@@ -14,27 +14,20 @@ export const SearchOpponents = () => {
       const rivals = await searchRivals(player);
       setPotentialRivals(rivals);
     };
-
     localStorage.getItem("uid") && fetchUserData();
   }, []);
-  async function avatar() {
-    const a = await getDocument("users", "1");
-    return "a";
-  }
   return (
     <>
       <Header></Header>
       <Article>
         <h1>Search for opponents</h1>
         <ul>
-          {potentialRivals.map( (doc) => (
+          {potentialRivals.map((doc) => (
             <li key={doc.nick}>
               <img src={doc.avatar} alt="player avatar" />
               <p>
                 {doc.nick}, {doc.elo}
               </p>
-
-
             </li>
           ))}
         </ul>

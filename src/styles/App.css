@@ -19,9 +19,33 @@ h1,
 h2,
 h3 {
   margin: 0;
+  
 }
 
 ul {
-  columns: 2;
+  display: grid;
   min-width: 100%;
+  grid-template-columns: 1fr 1fr;
+
+  justify-self: right;
+
+  font-size: x-large;
+  justify-content: right;
+}
+
+li {
+  box-sizing: border-box;
+  margin: 5px;
+  background-color: rgba(85, 75, 66, 0.2);
+}
+
+#charactercreation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 90%;
+  height: 90%;
+  place-items: center;
+
+  grid-template-columns: 90fr 30fr;
 }

@@ -1,6 +1,6 @@
 [
   {
-    "nombre": "Elfos del Bosque",
+    "nombre": "Wooden elf",
     "descripcion": "Hábiles en la arquería y la magia natural.",
     "habilidades": ["Tiro con arco", "Manipulación de la naturaleza"],
     "estadisticas_base": {
@@ -11,7 +11,7 @@
     }
   },
   {
-    "nombre": "Altos Elfos",
+    "nombre": "High Elf",
     "descripcion": "Maestros en el arte de la magia arcana.",
     "habilidades": ["Magia arcana avanzada", "Teletransportación"],
     "estadisticas_base": {
@@ -22,7 +22,7 @@
     }
   },
   {
-    "nombre": "Orcos",
+    "nombre": "Orc",
     "descripcion": "Fuerza bruta y resistencia física.",
     "habilidades": ["Golpe devastador", "Inmunidad a venenos"],
     "estadisticas_base": {
@@ -33,7 +33,7 @@
     }
   },
   {
-    "nombre": "Humanos",
+    "nombre": "Human",
     "descripcion": "Versátiles y adaptables.",
     "habilidades": ["Habilidades diversas", "Diplomacia"],
     "estadisticas_base": {
@@ -44,7 +44,7 @@
     }
   },
   {
-    "nombre": "Enanos",
+    "nombre": "Dwarf",
     "descripcion": "Hábiles en la forja y la resistencia.",
     "habilidades": ["Forja maestra", "Resistencia a condiciones adversas"],
     "estadisticas_base": {
