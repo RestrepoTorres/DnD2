@@ -20,7 +20,15 @@ const firebaseConfig = firebaseToken;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const normalRange = 45;
-export async function addCharacter(name, elo, gamesPlayed, wins, winRate) {
+
+export async function addCharacter(
+  name,
+  elo,
+  gamesPlayed,
+  wins,
+  winRate,
+  race
+) {
   const uid = localStorage.getItem("uid");
   await setDoc(doc(db, "characters", "" + uid), {
     nick: name,
@@ -29,6 +37,7 @@ export async function addCharacter(name, elo, gamesPlayed, wins, winRate) {
     wins: wins,
     userId: uid,
     winRate: winRate,
+    race: race,
   });
 }
 
