@@ -26,7 +26,8 @@ async function formOnClick(event, navigate) {
     race,
     classs
   );
-  navigate("/search-opponents");
+  localStorage.setItem("nick", CharacterName);
+  navigate("/game-mode");
 }
 
 export const CharacterCreator = () => {
@@ -59,7 +60,7 @@ export const CharacterCreator = () => {
       <Header />
       <div id="charactercreation">
         <Article>
-          <h1>Character Selector </h1>
+          <h1>Character Creation </h1>
           <form
             name="RegForm"
             onSubmit={(event) => formOnClick(event, navigate)}
@@ -129,19 +130,29 @@ export const CharacterCreator = () => {
         </Article>
 
         <Article>
-          <h1>{race.name}</h1>
-          <p>Race description : {race.description}</p>
-          <p>habilidad principal: {race.habilities[0]}</p>
-          <p>habilidad secundaria: {race.habilities[1]}</p>
+          <div>
+            <h1>Race: {race.name}</h1>
+            <p>About : {race.description}</p>
+            <p>main skill: {race.habilities[0]}</p>
+            <p>secondary skill: {race.habilities[1]}</p>
+          </div>
 
-          <h1>{classs.name}</h1>
-          <p>class description: {classs.description}</p>
+          <div>
+            <h1>Class: {classs.name}</h1>
+            <p> {classs.description}</p>
+          </div>
 
-          <h1>Stats</h1>
-          <p>fuerza = {race.stats["fuerza"]+classs.stats["fuerza"]}</p>
-          <p>inteligencia = {race.stats["inteligencia"]+classs.stats["inteligencia"]}</p>
-          <p>destreza = {race.stats["destreza"]+classs.stats["destreza"]}</p>
-          <p>vida = {race.stats["vida"]+classs.stats["vida"]}</p>
+          <div>
+            <h1>Attributes</h1>
+            <p>strength: {race.stats["fuerza"] + classs.stats["fuerza"]}</p>
+            <p>
+            intelligence: {race.stats["inteligencia"] + classs.stats["inteligencia"]}
+            </p>
+            <p>
+            dexterity: {race.stats["destreza"] + classs.stats["destreza"]}
+            </p>
+            <p>HP: {race.stats["vida"] + classs.stats["vida"]}</p>
+          </div>
         </Article>
       </div>
       <Footer />
