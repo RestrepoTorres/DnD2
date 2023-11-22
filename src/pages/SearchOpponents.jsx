@@ -24,7 +24,7 @@ export const SearchOpponents = () => {
         <ul>
           {potentialRivals.map((doc) => (
             <li key={doc.nick}>
-              <img src={doc.avatar} class="avatar" alt="player avatar" />
+              <img src={doc.avatar} className="avatar" alt="player avatar" />
               <p><strong>Nick:</strong> {doc.nick}.</p>
               <p> <strong>Elo:</strong> {doc.elo}.</p>
             </li>
