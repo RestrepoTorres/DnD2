@@ -3,7 +3,6 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { Article, Button, Header, Footer } from "/src/components/Components";
-import { RaceSelector } from "./RaceSelector";
 
 const firebaseConfig = firebaseToken;
 const provider = new GoogleAuthProvider();
@@ -22,22 +21,21 @@ export const Login = () => {
   const navigate = useNavigate();
   return (
     <>
-      
-      <Header />
-      <Article>
-        <h1>Please login to start your adventure</h1>
+      <div className="red">
+        <h1>Welcome, Adventurer!</h1>
+
         <p>
-          DnD2 its a classic history driven rpg. The world of $____$ it's is
-          harsh and merciless, you will probably have to ally yourself with
-          other inhabitants of this world to achieve your goal. Click login
-          start.
+          🛡️ Log in to embark on your epic journey in the realm of Eldoria! 🗡️
+          Prepare to face mythical creatures, unravel ancient mysteries, and
+          forge alliances with fellow warriors. Your destiny awaits, and only
+          you can shape the future of this enchanted world. Enter your
+          credentials below and let the adventure begin!
         </p>
         <Button
           label="log with Google"
           handleClick={() => googleLogin(navigate)}
         />
-      </Article>
-      <Footer />
+      </div>
     </>
   );
 };

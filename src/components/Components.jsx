@@ -16,7 +16,7 @@ export const Article = ({ children }) => {
 export const Footer = () => {
   return (
     <footer>
-      <h3>Build with 🖤🐈‍⬛🐦‍⬛🦝. 2023 UdeA.</h3>
+      <h3>Made with ❤️. 2023 UdeA.</h3>
     </footer>
   );
 };
