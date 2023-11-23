@@ -20,7 +20,7 @@ export const SearchOpponents = () => {
     <>
       <Header></Header>
       <Article>
-        <h1>Search for opponents</h1>
+        <h1>Found opponents</h1>
         <ul>
           {potentialRivals.map((doc) => (
             <li key={doc.nick}>
