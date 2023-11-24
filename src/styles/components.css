@@ -32,6 +32,16 @@ button,input, select {
   border-radius: 15px;
 }
 
+
+button {
+  box-sizing: border-box;
+  padding: 1%;
+  background-color: #061848;
+  color: #fefcee;
+  font-size: x-large;
+  border: 0px;
+  border-radius: 15px;
+}
 footer {
   margin-top: 1%;
 }

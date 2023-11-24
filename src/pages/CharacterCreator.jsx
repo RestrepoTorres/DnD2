@@ -77,19 +77,22 @@ export const CharacterCreator = () => {
               autoComplete="given-name"
             />
             <br />
+            <br />
             <label>Elo:</label>
             <br />
             <input type="number" name="Elo" id="elo" required placeholder="4" />
+            <br />
             <br />
             <label>games played:</label>
             <br />
             <input type="number" name="gamesPlayed" required placeholder="4" />
             <br />
+            <br />
             <label>Won games:</label>
             <br />
             <input type="number" name="wonGames" required placeholder="4" />
             <br />
-
+            <br />
             <label>Choose a race:</label>
             <br />
             <select
@@ -106,6 +109,7 @@ export const CharacterCreator = () => {
               <option>Human</option>
               <option>Orc</option>
             </select>
+            <br />
             <br />
             <label>Choose a class:</label>
             <br />
@@ -127,23 +131,28 @@ export const CharacterCreator = () => {
             </select>
             <br />
             <br />
-            <input type="submit" value="Create player"></input>
+            <br />
+            <br />
+            <input type="submit" value=" Create player "></input>
           </form>
         </Article>
 
-        <Article id ="atributes">
+        <Article id="atributes">
           <div>
             <h1>
               <strong>Race: {race.name}</strong>
             </h1>
+            <br />
             <p>
               {" "}
               <strong>About:</strong> {race.description}
             </p>
+            <br />
             <p>
               <strong>main skill: </strong>
               {race.habilities[0]}
             </p>
+            <br />
             <p>
               <strong>secondary skill:</strong> {race.habilities[1]}
             </p>
@@ -152,12 +161,14 @@ export const CharacterCreator = () => {
             <h1>
               <strong>Class: {classs.name}</strong>
             </h1>
+            <br />
             <p> {classs.description}</p>
           </div>
           <div>
             <h1>
               <strong>Attributes </strong>
             </h1>
+            <br />
             <p>strength: {race.stats["fuerza"] + classs.stats["fuerza"]}</p>
             <p>
               intelligence:{" "}

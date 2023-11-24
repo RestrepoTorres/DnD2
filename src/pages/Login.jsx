@@ -32,7 +32,7 @@ export const Login = () => {
           credentials below and let the adventure begin!
         </p>
         <Button
-          label="log with Google"
+          label="Login with Google"
           handleClick={() => googleLogin(navigate)}
         />
       </div>

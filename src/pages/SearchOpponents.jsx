@@ -3,7 +3,9 @@ import { searchRivals, getDocument } from "../firebase_back/Firestore_access";
 import { useState, useEffect } from "react";
 
 export const SearchOpponents = () => {
-  const [potentialRivals, setPotentialRivals] = useState([]);
+  const [potentialRivals, setPotentialRivals] = useState([
+    { nick: "nobody was found to you :c" },
+  ]);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -25,8 +27,13 @@ export const SearchOpponents = () => {
           {potentialRivals.map((doc) => (
             <li key={doc.nick}>
               <img src={doc.avatar} className="avatar" alt="player avatar" />
-              <p><strong>Nick:</strong> {doc.nick}.</p>
-              <p> <strong>Elo:</strong> {doc.elo}.</p>
+              <p>
+                <strong>Nick:</strong> {doc.nick}.
+              </p>
+              <p>
+                {" "}
+                <strong>Elo:</strong> {doc.elo}.
+              </p>
             </li>
           ))}
         </ul>
