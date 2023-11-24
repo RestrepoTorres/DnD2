@@ -36,8 +36,8 @@ export const CharacterCreator = () => {
   const navigate = useNavigate();
   const [race, setRace] = useState({
     name: "High Elf",
-    description: "Maestros en el arte de la magia arcana.",
-    habilities: ["Magia arcana avanzada", "Teletransportación"],
+    description: "Masters in the art of arcane magic.",
+    habilities: ["Advanced arcane magic", "Teleportation"],
     stats: {
       fuerza: 4,
       destreza: 6,
