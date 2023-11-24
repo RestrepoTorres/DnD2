@@ -11,7 +11,7 @@ export const GameMode = () => {
         <Button
           label="History mode"
           handleClick={() => {
-            window.location.replace("../RPG_test-main/index.html");
+            window.location.replace("/index2.html");
           }}
         />
 
