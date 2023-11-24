@@ -131,21 +131,33 @@ export const CharacterCreator = () => {
           </form>
         </Article>
 
-        <Article>
+        <Article id ="atributes">
           <div>
-            <h1>Race: {race.name}</h1>
-            <p>About : {race.description}</p>
-            <p>main skill: {race.habilities[0]}</p>
-            <p>secondary skill: {race.habilities[1]}</p>
+            <h1>
+              <strong>Race: {race.name}</strong>
+            </h1>
+            <p>
+              {" "}
+              <strong>About:</strong> {race.description}
+            </p>
+            <p>
+              <strong>main skill: </strong>
+              {race.habilities[0]}
+            </p>
+            <p>
+              <strong>secondary skill:</strong> {race.habilities[1]}
+            </p>
           </div>
-
           <div>
-            <h1>Class: {classs.name}</h1>
+            <h1>
+              <strong>Class: {classs.name}</strong>
+            </h1>
             <p> {classs.description}</p>
           </div>
-
           <div>
-            <h1>Attributes</h1>
+            <h1>
+              <strong>Attributes </strong>
+            </h1>
             <p>strength: {race.stats["fuerza"] + classs.stats["fuerza"]}</p>
             <p>
               intelligence:{" "}
