@@ -7,16 +7,16 @@ export const GameMode = () => {
       <Header />
       
       <div id = "game-mode">
-      <h1>Selecciona un modo de juego:</h1>
+      <h1>Select a game mode:</h1>
         <Button
-          label="modo historia"
+          label="History mode"
           handleClick={() => {
-            window.location.replace("../RPG_test-main/index.html");
+            window.location.replace("/index2.html");
           }}
         />
 
         <Button
-          label="modo competitivo"
+          label="Competitive mode"
           handleClick={() => {
             navigate("/search-opponents");
           }}
