@@ -25,7 +25,8 @@ async function formOnClick(event, navigate) {
     wonGames,
     winRate,
     race,
-    classs
+    classs,
+    avatar
   );
   localStorage.setItem("nick", CharacterName);
   navigate("/game-mode");
