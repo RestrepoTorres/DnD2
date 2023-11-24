@@ -16,6 +16,7 @@ async function formOnClick(event, navigate) {
   const winRate = wonGames / gamesPlayed;
   const race = document.forms.RegForm.race.value;
   const classs = document.forms.RegForm.Class.value;
+  const avatar = localStorage.getItem("photoURL");
   await addUser();
   await addCharacter(
     CharacterName,
@@ -146,10 +147,11 @@ export const CharacterCreator = () => {
             <h1>Attributes</h1>
             <p>strength: {race.stats["fuerza"] + classs.stats["fuerza"]}</p>
             <p>
-            intelligence: {race.stats["inteligencia"] + classs.stats["inteligencia"]}
+              intelligence:{" "}
+              {race.stats["inteligencia"] + classs.stats["inteligencia"]}
             </p>
             <p>
-            dexterity: {race.stats["destreza"] + classs.stats["destreza"]}
+              dexterity: {race.stats["destreza"] + classs.stats["destreza"]}
             </p>
             <p>HP: {race.stats["vida"] + classs.stats["vida"]}</p>
           </div>
