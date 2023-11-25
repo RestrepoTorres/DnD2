@@ -80,17 +80,17 @@ export const CharacterCreator = () => {
             <br />
             <label>Elo:</label>
             <br />
-            <input type="number" name="Elo" id="elo" required placeholder="4" />
+            <input type="number" name="Elo" id="elo" required />
             <br />
             <br />
             <label>games played:</label>
             <br />
-            <input type="number" name="gamesPlayed" required placeholder="4" />
+            <input type="number" name="gamesPlayed" required />
             <br />
             <br />
             <label>Won games:</label>
             <br />
-            <input type="number" name="wonGames" required placeholder="4" />
+            <input type="number" name="wonGames" required />
             <br />
             <br />
             <label>Choose a race:</label>
